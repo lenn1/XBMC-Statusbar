@@ -13,6 +13,8 @@
 		88C8235515134F7B0007F7CF /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 88C8235315134F7B0007F7CF /* Credits.rtf */; };
 		88C8235815134F7B0007F7CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C8235715134F7B0007F7CF /* AppDelegate.m */; };
 		88C8235B15134F7B0007F7CF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C8235915134F7B0007F7CF /* MainMenu.xib */; };
+		88DC2025151387BA00C56A17 /* xbmc-inv.png in Resources */ = {isa = PBXBuildFile; fileRef = 88DC2023151387BA00C56A17 /* xbmc-inv.png */; };
+		88DC2026151387BA00C56A17 /* xbmc.png in Resources */ = {isa = PBXBuildFile; fileRef = 88DC2024151387BA00C56A17 /* xbmc.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		88C8235615134F7B0007F7CF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		88C8235715134F7B0007F7CF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		88C8235A15134F7B0007F7CF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		88DC2023151387BA00C56A17 /* xbmc-inv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xbmc-inv.png"; sourceTree = "<group>"; };
+		88DC2024151387BA00C56A17 /* xbmc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xbmc.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,8 @@
 				88C8235615134F7B0007F7CF /* AppDelegate.h */,
 				88C8235715134F7B0007F7CF /* AppDelegate.m */,
 				88C8235915134F7B0007F7CF /* MainMenu.xib */,
+				88DC2023151387BA00C56A17 /* xbmc-inv.png */,
+				88DC2024151387BA00C56A17 /* xbmc.png */,
 				88C8234B15134F7B0007F7CF /* Supporting Files */,
 			);
 			path = "XBMC-Statusbar";
@@ -155,6 +161,8 @@
 				88C8234F15134F7B0007F7CF /* InfoPlist.strings in Resources */,
 				88C8235515134F7B0007F7CF /* Credits.rtf in Resources */,
 				88C8235B15134F7B0007F7CF /* MainMenu.xib in Resources */,
+				88DC2025151387BA00C56A17 /* xbmc-inv.png in Resources */,
+				88DC2026151387BA00C56A17 /* xbmc.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +294,7 @@
 				88C8236015134F7B0007F7CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
