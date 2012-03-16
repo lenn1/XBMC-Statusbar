@@ -1,0 +1,293 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		88C8234515134F7B0007F7CF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88C8234415134F7B0007F7CF /* Cocoa.framework */; };
+		88C8234F15134F7B0007F7CF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 88C8234D15134F7B0007F7CF /* InfoPlist.strings */; };
+		88C8235115134F7B0007F7CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C8235015134F7B0007F7CF /* main.m */; };
+		88C8235515134F7B0007F7CF /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 88C8235315134F7B0007F7CF /* Credits.rtf */; };
+		88C8235815134F7B0007F7CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C8235715134F7B0007F7CF /* AppDelegate.m */; };
+		88C8235B15134F7B0007F7CF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C8235915134F7B0007F7CF /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		88C8234015134F7B0007F7CF /* XBMC-Statusbar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "XBMC-Statusbar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		88C8234415134F7B0007F7CF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		88C8234715134F7B0007F7CF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		88C8234815134F7B0007F7CF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		88C8234915134F7B0007F7CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		88C8234C15134F7B0007F7CF /* XBMC-Statusbar-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "XBMC-Statusbar-Info.plist"; sourceTree = "<group>"; };
+		88C8234E15134F7B0007F7CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		88C8235015134F7B0007F7CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		88C8235215134F7B0007F7CF /* XBMC-Statusbar-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XBMC-Statusbar-Prefix.pch"; sourceTree = "<group>"; };
+		88C8235415134F7B0007F7CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		88C8235615134F7B0007F7CF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		88C8235715134F7B0007F7CF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		88C8235A15134F7B0007F7CF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		88C8233D15134F7B0007F7CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88C8234515134F7B0007F7CF /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		88C8233515134F7B0007F7CF = {
+			isa = PBXGroup;
+			children = (
+				88C8234A15134F7B0007F7CF /* XBMC-Statusbar */,
+				88C8234315134F7B0007F7CF /* Frameworks */,
+				88C8234115134F7B0007F7CF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		88C8234115134F7B0007F7CF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				88C8234015134F7B0007F7CF /* XBMC-Statusbar.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		88C8234315134F7B0007F7CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88C8234415134F7B0007F7CF /* Cocoa.framework */,
+				88C8234615134F7B0007F7CF /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		88C8234615134F7B0007F7CF /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88C8234715134F7B0007F7CF /* AppKit.framework */,
+				88C8234815134F7B0007F7CF /* CoreData.framework */,
+				88C8234915134F7B0007F7CF /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		88C8234A15134F7B0007F7CF /* XBMC-Statusbar */ = {
+			isa = PBXGroup;
+			children = (
+				88C8235615134F7B0007F7CF /* AppDelegate.h */,
+				88C8235715134F7B0007F7CF /* AppDelegate.m */,
+				88C8235915134F7B0007F7CF /* MainMenu.xib */,
+				88C8234B15134F7B0007F7CF /* Supporting Files */,
+			);
+			path = "XBMC-Statusbar";
+			sourceTree = "<group>";
+		};
+		88C8234B15134F7B0007F7CF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				88C8234C15134F7B0007F7CF /* XBMC-Statusbar-Info.plist */,
+				88C8234D15134F7B0007F7CF /* InfoPlist.strings */,
+				88C8235015134F7B0007F7CF /* main.m */,
+				88C8235215134F7B0007F7CF /* XBMC-Statusbar-Prefix.pch */,
+				88C8235315134F7B0007F7CF /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		88C8233F15134F7B0007F7CF /* XBMC-Statusbar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88C8235E15134F7B0007F7CF /* Build configuration list for PBXNativeTarget "XBMC-Statusbar" */;
+			buildPhases = (
+				88C8233C15134F7B0007F7CF /* Sources */,
+				88C8233D15134F7B0007F7CF /* Frameworks */,
+				88C8233E15134F7B0007F7CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "XBMC-Statusbar";
+			productName = "XBMC-Statusbar";
+			productReference = 88C8234015134F7B0007F7CF /* XBMC-Statusbar.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		88C8233715134F7B0007F7CF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 88C8233A15134F7B0007F7CF /* Build configuration list for PBXProject "XBMC-Statusbar" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 88C8233515134F7B0007F7CF;
+			productRefGroup = 88C8234115134F7B0007F7CF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				88C8233F15134F7B0007F7CF /* XBMC-Statusbar */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		88C8233E15134F7B0007F7CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88C8234F15134F7B0007F7CF /* InfoPlist.strings in Resources */,
+				88C8235515134F7B0007F7CF /* Credits.rtf in Resources */,
+				88C8235B15134F7B0007F7CF /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		88C8233C15134F7B0007F7CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88C8235115134F7B0007F7CF /* main.m in Sources */,
+				88C8235815134F7B0007F7CF /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		88C8234D15134F7B0007F7CF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88C8234E15134F7B0007F7CF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		88C8235315134F7B0007F7CF /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88C8235415134F7B0007F7CF /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		88C8235915134F7B0007F7CF /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88C8235A15134F7B0007F7CF /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		88C8235C15134F7B0007F7CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		88C8235D15134F7B0007F7CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		88C8235F15134F7B0007F7CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "XBMC-Statusbar/XBMC-Statusbar-Prefix.pch";
+				INFOPLIST_FILE = "XBMC-Statusbar/XBMC-Statusbar-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		88C8236015134F7B0007F7CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "XBMC-Statusbar/XBMC-Statusbar-Prefix.pch";
+				INFOPLIST_FILE = "XBMC-Statusbar/XBMC-Statusbar-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		88C8233A15134F7B0007F7CF /* Build configuration list for PBXProject "XBMC-Statusbar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88C8235C15134F7B0007F7CF /* Debug */,
+				88C8235D15134F7B0007F7CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88C8235E15134F7B0007F7CF /* Build configuration list for PBXNativeTarget "XBMC-Statusbar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88C8235F15134F7B0007F7CF /* Debug */,
+				88C8236015134F7B0007F7CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 88C8233715134F7B0007F7CF /* Project object */;
+}
