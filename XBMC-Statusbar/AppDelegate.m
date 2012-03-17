@@ -7,9 +7,26 @@
 //
 
 #import "AppDelegate.h"
+#import <arpa/inet.h>
+#import <netinet/in.h>
+#import <unistd.h>
+#import <netdb.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+@implementation NSString (HexIntValue)
 
+- (unsigned int)hexIntValue
+{
+    NSScanner *scanner;
+    unsigned int result;
+    scanner = [NSScanner scannerWithString: self];
+    [scanner scanHexInt: &result];
+    return result;
+}
+
+@end
 @implementation AppDelegate
-@synthesize username,password,ipAddress,port;
+@synthesize ipAddress;
 - (void)dealloc
 {
     [super dealloc];
@@ -25,61 +42,136 @@
     [statusItem setAction:@selector(updateFreeSpaceLabels)];
     
     statusMenu.delegate = self;
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"password"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"username"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"port"];
+
     
-    //DEBUG
+    if(![[NSUserDefaults standardUserDefaults] objectForKey:@"ipAddress"])
+    {
+        [[NSUserDefaults standardUserDefaults]setObject:@"192.168.0.1" forKey:@"ipAddress"];
+        [[NSUserDefaults standardUserDefaults]setObject:@"00:00:00:00:00:00" forKey:@"MAC"];
+    }
+
+    self.ipAddress = (NSString*)[[NSUserDefaults standardUserDefaults]objectForKey:@"ipAddress"];
+}
+-(void)RPCThread:(id)object
+{
+    NSString* rpc_call = (NSString*)object;
     
-    self.ipAddress = @"xbmc.local";
-    self.username = @"xbmc";
-    self.password = @"hb.m,4dc";
-    self.port = 8080;
+    struct sockaddr_in remote_addr;
+    remote_addr.sin_family = AF_INET;
+    remote_addr.sin_port = htons(9090);
+    remote_addr.sin_addr.s_addr = inet_addr([self.ipAddress UTF8String]);
+    
+    int sfd = socket(AF_INET, SOCK_STREAM, 0);
+    if(sfd < 0)
+		NSLog(@"Socket Error");
+    int con = connect(sfd, (struct sockaddr*)&remote_addr, sizeof(remote_addr));
+    if(con < 0)
+		NSLog(@"Connection Error");
+    ssize_t sending = send(sfd, [rpc_call UTF8String], rpc_call.length, 0);
+    if(sending < 0)
+		NSLog(@"Sending Error");
+    close(sfd);
+
+}
+-(void)RPCCall:(NSString*)rpc_call
+{
+    NSThread* rpcThread = [[NSThread alloc]initWithTarget:self selector:@selector(RPCThread:) object:rpc_call];
+    [rpcThread start];
     
 }
-
 - (IBAction)button_UpdateLibrary:(id)sender 
 {
-    
-    NSString* Url = [NSString stringWithFormat:@"http://%@:%@@%@:%d/xbmcCmds/xbmcHttp?command=ExecBuiltIn&parameter=XBMC.UpdateLibrary(video)",username,password,ipAddress,port];
-    NSURLRequest *myRequest = [[NSURLRequest alloc]initWithURL:[[NSURL alloc]initWithString:Url]];
-    [[[NSURLConnection alloc] initWithRequest:myRequest delegate:self] autorelease];
-
+    NSString* rpc_call = @"{\"jsonrpc\": \"2.0\", \"method\": \"VideoLibrary.Scan\",\"id\": null}";
+    [self RPCCall:rpc_call];
 }
 
 - (IBAction)button_CleanLibrary:(id)sender 
 {
-    NSString* Url = [NSString stringWithFormat:@"http://%@:%@@%@:%d/xbmcCmds/xbmcHttp?command=ExecBuiltIn&parameter=XBMC.CleanLibrary(video)",username,password,ipAddress,port];
-    NSURLRequest *myRequest = [[NSURLRequest alloc]initWithURL:[[NSURL alloc]initWithString:Url]];
-    [[[NSURLConnection alloc] initWithRequest:myRequest delegate:self] autorelease];
+    NSString* rpc_call = @"{\"jsonrpc\": \"2.0\", \"method\": \"VideoLibrary.Clean\",\"id\": null}";
+    [self RPCCall:rpc_call];    
 }
 
 - (IBAction)button_WakeOnLan:(id)sender 
 {
+    NSString* macadd = [[NSUserDefaults standardUserDefaults]objectForKey:@"MAC"];
     
+    unsigned char ethaddr[6];
+    ethaddr[0] = [[macadd substringWithRange:NSMakeRange(0, 2)]hexIntValue];
+    ethaddr[1] = [[macadd substringWithRange:NSMakeRange(3, 2)]hexIntValue];
+    ethaddr[2] = [[macadd substringWithRange:NSMakeRange(6, 2)]hexIntValue];
+    ethaddr[3] = [[macadd substringWithRange:NSMakeRange(9, 2)]hexIntValue];
+    ethaddr[4] = [[macadd substringWithRange:NSMakeRange(12, 2)]hexIntValue];
+    ethaddr[5] = [[macadd substringWithRange:NSMakeRange(15, 2)]hexIntValue];
+    
+    unsigned char *magicPacket;
+    unsigned char buf [128];
+    
+    /* Build the message to send - 6 x 0xff then 16 x MAC address */
+    magicPacket = buf;
+    for (int i = 0; i < 6; i++)
+        *magicPacket++ = 0xff;
+    for (int j = 0; j < 16; j++)
+        for (int i = 0; i < 6; i++)
+            *magicPacket++ = ethaddr[i];
+    
+    /* Send the message */
+    
+    struct sockaddr_in remote_addr;
+    remote_addr.sin_family = AF_INET;
+    remote_addr.sin_port = htons(9);
+    remote_addr.sin_addr.s_addr = inet_addr([self.ipAddress UTF8String]);
+    
+	int sfd = socket(AF_INET,SOCK_DGRAM,0);
+	if(sfd < 0)
+		NSLog(@"Socket Error");
+
+	ssize_t SEND_MAGIC_PACKET = sendto(sfd, (char*)buf, 102, 0,(struct sockaddr*)&remote_addr, sizeof(remote_addr));
+    if(SEND_MAGIC_PACKET < 0)
+        NSLog(@"Sending Error!");
 }
 
 - (IBAction)button_Suspend:(id)sender 
 {
-    
-    NSString* Url = [NSString stringWithFormat:@"http://%@:%@@%@:%d/xbmcCmds/xbmcHttp?command=ExecBuiltIn&parameter=XBMC.Suspend",username,password,ipAddress,port];
-    NSURLRequest *myRequest = [[NSURLRequest alloc]initWithURL:[[NSURL alloc]initWithString:Url]];
-    [[[NSURLConnection alloc] initWithRequest:myRequest delegate:self] autorelease];
+    NSString* rpc_call = @"{\"jsonrpc\": \"2.0\", \"method\": \"System.Suspend\",\"id\": null}";
+    [self RPCCall:rpc_call]; 
 
 }
 
 - (IBAction)button_ShutDown:(id)sender 
 {
-    NSString* Url = [NSString stringWithFormat:@"http://%@:%@@%@:%d/xbmcCmds/xbmcHttp?command=ExecBuiltIn&parameter=XBMC.Shutdown",username,password,ipAddress,port];
-    NSURLRequest *myRequest = [[NSURLRequest alloc]initWithURL:[[NSURL alloc]initWithString:Url]];
-    [[[NSURLConnection alloc] initWithRequest:myRequest delegate:self] autorelease];
-
+    NSString* rpc_call = @"{\"jsonrpc\": \"2.0\", \"method\": \"System.Shutdown\",\"id\": null}";
+    [self RPCCall:rpc_call]; 
 }
 
 - (IBAction)button_Preferences:(id)sender 
 {
     [preferencesWindow makeKeyAndOrderFront:nil];
+    textfield_ipAddress.stringValue = self.ipAddress;
+    textfield_macAddress.stringValue = (NSString*)[[NSUserDefaults standardUserDefaults]objectForKey:@"MAC"];
 }
+- (IBAction)button_prefOk:(id)sender 
+{
+    [[NSUserDefaults standardUserDefaults]setObject:[textfield_ipAddress stringValue] forKey:@"ipAddress"];
+    [[NSUserDefaults standardUserDefaults]setObject:[textfield_macAddress stringValue] forKey:@"MAC"];
 
+    [[NSUserDefaults standardUserDefaults]synchronize];
+    
+    self.ipAddress = (NSString*)[[NSUserDefaults standardUserDefaults]objectForKey:@"ipAddress"];
+    [preferencesWindow orderOut:self];
+
+} 
 - (IBAction)button_Quit:(id)sender 
 {    
     [NSApp terminate: nil]; 
 }
+
+- (IBAction)button_prefCancel:(id)sender 
+{
+    [preferencesWindow orderOut:self];
+}
+
+ 
 @end

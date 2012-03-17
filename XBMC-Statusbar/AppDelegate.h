@@ -17,6 +17,11 @@
     NSString* ipAddress;
     int port;
     IBOutlet NSWindow* preferencesWindow;
+    IBOutlet NSTextField *textfield_ipAddress;
+    IBOutlet NSTextField *textfield_port;
+    IBOutlet NSTextField *textfield_username;
+    IBOutlet NSSecureTextField *textfield_password;
+    IBOutlet NSTextField *textfield_macAddress;
 }
 - (IBAction)button_UpdateLibrary:(id)sender;
 - (IBAction)button_CleanLibrary:(id)sender;
@@ -25,11 +30,11 @@
 - (IBAction)button_ShutDown:(id)sender;
 - (IBAction)button_Preferences:(id)sender;
 - (IBAction)button_Quit:(id)sender;
+- (IBAction)button_prefCancel:(id)sender;
+- (IBAction)button_prefOk:(id)sender;
+-(void)RPCCall:(NSString*)rpc_call;
 
 @property(assign,nonatomic)NSString* ipAddress;
-@property(assign,nonatomic)NSString* username;
-@property(assign,nonatomic)NSString* password;
-@property int port;
 
 
 @end
