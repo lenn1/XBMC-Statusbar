@@ -57,23 +57,31 @@
 }
 -(void)RPCThread:(id)object
 {
-    NSString* rpc_call = (NSString*)object;
+    @try 
+    {
+        NSString* rpc_call = (NSString*)object;
+        
+        struct sockaddr_in remote_addr;
+        remote_addr.sin_family = AF_INET;
+        remote_addr.sin_port = htons(9090);
+        remote_addr.sin_addr.s_addr = inet_addr([self.ipAddress UTF8String]);
+        
+        int sfd = socket(AF_INET, SOCK_STREAM, 0);
+        if(sfd < 0)
+            @throw @"Socket Error";
+        int con = connect(sfd, (struct sockaddr*)&remote_addr, sizeof(remote_addr));
+        if(con < 0)
+            @throw @"Connection Error";
+        ssize_t sending = send(sfd, [rpc_call UTF8String], rpc_call.length, 0);
+        if(sending < 0)
+            @throw @"Sending Error";
+        close(sfd);
+    }
+    @catch (NSString* error) 
+    {
+        NSLog(@"%@",error);
+    }
     
-    struct sockaddr_in remote_addr;
-    remote_addr.sin_family = AF_INET;
-    remote_addr.sin_port = htons(9090);
-    remote_addr.sin_addr.s_addr = inet_addr([self.ipAddress UTF8String]);
-    
-    int sfd = socket(AF_INET, SOCK_STREAM, 0);
-    if(sfd < 0)
-		NSLog(@"Socket Error");
-    int con = connect(sfd, (struct sockaddr*)&remote_addr, sizeof(remote_addr));
-    if(con < 0)
-		NSLog(@"Connection Error");
-    ssize_t sending = send(sfd, [rpc_call UTF8String], rpc_call.length, 0);
-    if(sending < 0)
-		NSLog(@"Sending Error");
-    close(sfd);
 
 }
 -(void)RPCCall:(NSString*)rpc_call
