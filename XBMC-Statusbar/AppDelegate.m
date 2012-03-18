@@ -42,10 +42,6 @@
     [statusItem setAction:@selector(updateFreeSpaceLabels)];
     
     statusMenu.delegate = self;
-    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"password"];
-    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"username"];
-    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"port"];
-
     
     if(![[NSUserDefaults standardUserDefaults] objectForKey:@"ipAddress"])
     {

@@ -259,6 +259,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XBMC-Statusbar/XBMC-Statusbar-Prefix.pch";
 				INFOPLIST_FILE = "XBMC-Statusbar/XBMC-Statusbar-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -270,6 +271,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XBMC-Statusbar/XBMC-Statusbar-Prefix.pch";
 				INFOPLIST_FILE = "XBMC-Statusbar/XBMC-Statusbar-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
