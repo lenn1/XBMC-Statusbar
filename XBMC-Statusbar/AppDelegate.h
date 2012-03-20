@@ -27,6 +27,7 @@
 - (IBAction)button_CleanLibrary:(id)sender;
 - (IBAction)button_WakeOnLan:(id)sender;
 - (IBAction)button_Suspend:(id)sender;
+- (IBAction)button_Reboot:(id)sender;
 - (IBAction)button_ShutDown:(id)sender;
 - (IBAction)button_Preferences:(id)sender;
 - (IBAction)button_Quit:(id)sender;

@@ -144,6 +144,12 @@
 
 }
 
+- (IBAction)button_Reboot:(id)sender 
+{
+    NSString* rpc_call = @"{\"jsonrpc\": \"2.0\", \"method\": \"System.Reboot\",\"id\": null}";
+    [self RPCCall:rpc_call]; 
+}
+
 - (IBAction)button_ShutDown:(id)sender 
 {
     NSString* rpc_call = @"{\"jsonrpc\": \"2.0\", \"method\": \"System.Shutdown\",\"id\": null}";
