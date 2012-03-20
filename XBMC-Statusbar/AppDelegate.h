@@ -22,7 +22,9 @@
     IBOutlet NSTextField *textfield_username;
     IBOutlet NSSecureTextField *textfield_password;
     IBOutlet NSTextField *textfield_macAddress;
+    IBOutlet NSButton *checkBox_smallIcon;
 }
+
 - (IBAction)button_UpdateLibrary:(id)sender;
 - (IBAction)button_CleanLibrary:(id)sender;
 - (IBAction)button_WakeOnLan:(id)sender;
@@ -34,7 +36,7 @@
 - (IBAction)button_prefCancel:(id)sender;
 - (IBAction)button_prefOk:(id)sender;
 -(void)RPCCall:(NSString*)rpc_call;
-
+-(void)updateIcon;
 @property(assign,nonatomic)NSString* ipAddress;
 
 

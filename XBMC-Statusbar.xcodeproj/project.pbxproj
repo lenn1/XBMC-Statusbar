@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		881A519015190681000AF860 /* xbmc-inv-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 881A518E15190681000AF860 /* xbmc-inv-small.png */; };
+		881A519115190681000AF860 /* xbmc-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 881A518F15190681000AF860 /* xbmc-small.png */; };
 		88C8234515134F7B0007F7CF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88C8234415134F7B0007F7CF /* Cocoa.framework */; };
 		88C8234F15134F7B0007F7CF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 88C8234D15134F7B0007F7CF /* InfoPlist.strings */; };
 		88C8235115134F7B0007F7CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C8235015134F7B0007F7CF /* main.m */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		881A518E15190681000AF860 /* xbmc-inv-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xbmc-inv-small.png"; sourceTree = "<group>"; };
+		881A518F15190681000AF860 /* xbmc-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xbmc-small.png"; sourceTree = "<group>"; };
 		88C8234015134F7B0007F7CF /* XBMC-Statusbar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "XBMC-Statusbar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88C8234415134F7B0007F7CF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		88C8234715134F7B0007F7CF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -99,6 +103,8 @@
 		88C8234B15134F7B0007F7CF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				881A518E15190681000AF860 /* xbmc-inv-small.png */,
+				881A518F15190681000AF860 /* xbmc-small.png */,
 				88C8234C15134F7B0007F7CF /* XBMC-Statusbar-Info.plist */,
 				88C8234D15134F7B0007F7CF /* InfoPlist.strings */,
 				88C8235015134F7B0007F7CF /* main.m */,
@@ -163,6 +169,8 @@
 				88C8235B15134F7B0007F7CF /* MainMenu.xib in Resources */,
 				88DC2025151387BA00C56A17 /* xbmc-inv.png in Resources */,
 				88DC2026151387BA00C56A17 /* xbmc.png in Resources */,
+				881A519015190681000AF860 /* xbmc-inv-small.png in Resources */,
+				881A519115190681000AF860 /* xbmc-small.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -33,24 +33,48 @@
 }
 -(void)awakeFromNib
 {
-    
-    statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
-    [statusItem setMenu:statusMenu];
-    [statusItem setImage:[NSImage imageNamed:@"xbmc.png"]];
-    [statusItem setAlternateImage:[NSImage imageNamed:@"xbmc-inv.png"]];
-    [statusItem setHighlightMode:YES];
-    [statusItem setAction:@selector(updateFreeSpaceLabels)];
-    
-    statusMenu.delegate = self;
-    
+ 
     if(![[NSUserDefaults standardUserDefaults] objectForKey:@"ipAddress"])
     {
         [[NSUserDefaults standardUserDefaults]setObject:@"192.168.0.1" forKey:@"ipAddress"];
         [[NSUserDefaults standardUserDefaults]setObject:@"00:00:00:00:00:00" forKey:@"MAC"];
+        [[NSUserDefaults standardUserDefaults]setObject:@"big" forKey:@"IconSize"];
+        
     }
+
+    statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
+    [statusItem setMenu:statusMenu];
+    
+    [self updateIcon];
+    
+    
+    [statusItem setHighlightMode:YES];
+    statusMenu.delegate = self;
+    
+    
 
     self.ipAddress = (NSString*)[[NSUserDefaults standardUserDefaults]objectForKey:@"ipAddress"];
 }
+-(void)updateIcon
+{
+    
+    NSString* iconsize = [[NSUserDefaults standardUserDefaults]objectForKey:@"IconSize"];
+
+    if([iconsize isEqualToString:@"big"])
+    {
+        [statusItem setImage:[NSImage imageNamed:@"xbmc.png"]];
+        [statusItem setAlternateImage:[NSImage imageNamed:@"xbmc-inv.png"]];
+    }
+    else
+    {
+        [statusItem setImage:[NSImage imageNamed:@"xbmc-small.png"]];
+        [statusItem setAlternateImage:[NSImage imageNamed:@"xbmc-inv-small.png"]];
+    }
+
+}
+
+
+
 -(void)RPCThread:(id)object
 {
     @try 
@@ -161,9 +185,32 @@
     [preferencesWindow makeKeyAndOrderFront:nil];
     textfield_ipAddress.stringValue = self.ipAddress;
     textfield_macAddress.stringValue = (NSString*)[[NSUserDefaults standardUserDefaults]objectForKey:@"MAC"];
+    NSString* iconsize = [[NSUserDefaults standardUserDefaults]objectForKey:@"IconSize"];
+    
+    if([iconsize isEqualToString:@"big"])
+    {
+        [checkBox_smallIcon setState:NSOffState];
+    }
+    else
+    {
+        [checkBox_smallIcon setState:NSOnState];
+    }
+
+    
+    
+    
 }
 - (IBAction)button_prefOk:(id)sender 
 {
+   if(checkBox_smallIcon.state == NSOnState)
+       [[NSUserDefaults standardUserDefaults]setObject:@"small" forKey:@"IconSize"];
+   else
+       [[NSUserDefaults standardUserDefaults]setObject:@"big" forKey:@"IconSize"];
+
+    
+    [self updateIcon];
+    
+    
     [[NSUserDefaults standardUserDefaults]setObject:[textfield_ipAddress stringValue] forKey:@"ipAddress"];
     [[NSUserDefaults standardUserDefaults]setObject:[textfield_macAddress stringValue] forKey:@"MAC"];
 
@@ -171,7 +218,8 @@
     
     self.ipAddress = (NSString*)[[NSUserDefaults standardUserDefaults]objectForKey:@"ipAddress"];
     [preferencesWindow orderOut:self];
-
+    
+    
 } 
 - (IBAction)button_Quit:(id)sender 
 {    
