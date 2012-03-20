@@ -256,11 +256,13 @@
 		88C8235F15134F7B0007F7CF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XBMC-Statusbar/XBMC-Statusbar-Prefix.pch";
 				INFOPLIST_FILE = "XBMC-Statusbar/XBMC-Statusbar-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.6;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -268,11 +270,13 @@
 		88C8236015134F7B0007F7CF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XBMC-Statusbar/XBMC-Statusbar-Prefix.pch";
 				INFOPLIST_FILE = "XBMC-Statusbar/XBMC-Statusbar-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.6;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
