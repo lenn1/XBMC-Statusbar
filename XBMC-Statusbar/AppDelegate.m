@@ -49,7 +49,6 @@
 
     statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
     [statusItem setMenu:statusMenu];
-    çç
     [self updateIcon];
     
     
