@@ -140,7 +140,7 @@
 		88C8233715134F7B0007F7CF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 88C8233A15134F7B0007F7CF /* Build configuration list for PBXProject "XBMC-Statusbar" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -270,7 +270,7 @@
 				INFOPLIST_FILE = "XBMC-Statusbar/XBMC-Statusbar-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -284,7 +284,7 @@
 				INFOPLIST_FILE = "XBMC-Statusbar/XBMC-Statusbar-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -29,6 +29,11 @@
 @synthesize ipAddress;
 - (void)dealloc
 {
+    
+    [statusMenu release];
+    [statusItem release];
+        
+    
     [super dealloc];
 }
 -(void)awakeFromNib
@@ -44,7 +49,7 @@
 
     statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
     [statusItem setMenu:statusMenu];
-    
+    çç
     [self updateIcon];
     
     
