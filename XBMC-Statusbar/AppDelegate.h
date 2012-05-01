@@ -35,6 +35,10 @@
 - (IBAction)button_Quit:(id)sender;
 - (IBAction)button_prefCancel:(id)sender;
 - (IBAction)button_prefOk:(id)sender;
+- (IBAction)button_playPause:(id)sender;
+- (IBAction)button_Next:(id)sender;
+- (IBAction)button_Previous:(id)sender;
+- (IBAction)button_Stop:(id)sender;
 -(void)RPCCall:(NSString*)rpc_call;
 -(void)updateIcon;
 @property(assign,nonatomic)NSString* ipAddress;

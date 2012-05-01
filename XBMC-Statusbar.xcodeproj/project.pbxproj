@@ -93,8 +93,6 @@
 				88C8235615134F7B0007F7CF /* AppDelegate.h */,
 				88C8235715134F7B0007F7CF /* AppDelegate.m */,
 				88C8235915134F7B0007F7CF /* MainMenu.xib */,
-				88DC2023151387BA00C56A17 /* xbmc-inv.png */,
-				88DC2024151387BA00C56A17 /* xbmc.png */,
 				88C8234B15134F7B0007F7CF /* Supporting Files */,
 			);
 			path = "XBMC-Statusbar";
@@ -103,6 +101,8 @@
 		88C8234B15134F7B0007F7CF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				88DC2023151387BA00C56A17 /* xbmc-inv.png */,
+				88DC2024151387BA00C56A17 /* xbmc.png */,
 				881A518E15190681000AF860 /* xbmc-inv-small.png */,
 				881A518F15190681000AF860 /* xbmc-small.png */,
 				88C8234C15134F7B0007F7CF /* XBMC-Statusbar-Info.plist */,
