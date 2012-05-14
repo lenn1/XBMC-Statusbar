@@ -199,10 +199,6 @@
     {
         [checkBox_smallIcon setState:NSOnState];
     }
-
-    
-    
-    
 }
 - (IBAction)button_prefOk:(id)sender 
 {
@@ -230,6 +226,8 @@
 {
     NSString* rpc_call = @"{ \"jsonrpc\": \"2.0\", \"method\": \"Player.PlayPause\", \"params\": [1], \"id\": null}";
     [self RPCCall:rpc_call]; 
+    rpc_call = @"{ \"jsonrpc\": \"2.0\", \"method\": \"Player.PlayPause\", \"params\": [0], \"id\": null}";
+    [self RPCCall:rpc_call]; 
     
 }
 
@@ -237,17 +235,23 @@
 {
     NSString* rpc_call = @"{ \"jsonrpc\": \"2.0\", \"method\": \"Player.GoNext\", \"params\": [1], \"id\": null}";
     [self RPCCall:rpc_call]; 
+    rpc_call = @"{ \"jsonrpc\": \"2.0\", \"method\": \"Player.GoNext\", \"params\": [0], \"id\": null}";
+    [self RPCCall:rpc_call]; 
 }
 
 - (IBAction)button_Previous:(id)sender 
 {
     NSString* rpc_call = @"{ \"jsonrpc\": \"2.0\", \"method\": \"Player.GoPrevious\", \"params\": [1], \"id\": null}";
     [self RPCCall:rpc_call]; 
+    rpc_call = @"{ \"jsonrpc\": \"2.0\", \"method\": \"Player.GoPrevious\", \"params\": [0], \"id\": null}";
+    [self RPCCall:rpc_call]; 
 }
 
 - (IBAction)button_Stop:(id)sender 
 {
     NSString* rpc_call = @"{ \"jsonrpc\": \"2.0\", \"method\": \"Player.Stop\", \"params\": [1], \"id\": null}";
+    [self RPCCall:rpc_call]; 
+    rpc_call = @"{ \"jsonrpc\": \"2.0\", \"method\": \"Player.Stop\", \"params\": [0], \"id\": null}";
     [self RPCCall:rpc_call]; 
 }
 - (IBAction)button_Quit:(id)sender 
